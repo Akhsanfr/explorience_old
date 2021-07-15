@@ -1,7 +1,7 @@
-<a href="{{ route('welcome') }}">Back To Dashboard</a>
-<a href="{{ route('index-artikel') }}">Back To List Available article</a>
-<hr>
 <div>
+    <a href="{{ route('welcome') }}">Back To Dashboard</a>
+    <a href="{{ route('index-artikel') }}">Back To List Available article</a>
+    <hr>
     <div class="container">
         <div class="row">
             <ul class="list-group">
