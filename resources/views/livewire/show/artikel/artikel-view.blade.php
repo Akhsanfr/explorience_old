@@ -10,9 +10,20 @@
                 <li class="list-group-item">Telah disunting oleh {{ $artikel->supervisor->nama }}</li>
               </ul>
         </div>
+        {{-- Kuis START --}}
+        <div class="card shadow p-3 my-3" x-data="{ show : false }">
+            <a class="btn btn-info" @click="show = !show">
+                Show Kuis
+            </a>
+            <div x-show="show">
+                <hr>
+                @livewire('show.artikel.kuis-view', ['id' => $artikel->id])
+            </div>
+        </div>
+        {{-- A --}}
         <hr>
         <div class="row">
-            {{-- {!! $artikel->konten !!} --}}
+            {!! $artikel->konten !!}
         </div>
         <hr>
         {{-- AREA KOMENTAR --}}

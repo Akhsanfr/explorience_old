@@ -2,18 +2,21 @@
 @section('content')
 <div class="container">
     <div class="row">
-        @can('writer-only')
-            <a href="{{ route('artikels.edit', ['artikel'=> $artikel]) }}" class="btn btn-primary">Edit</a>
-        @endcan
-        @can('supervisor-only')
-            <a href="{{ route('artikel-ubah-status', ['artikel'=> $artikel]) }}" class="btn btn-primary">Ubah Status</a>
-        @endcan
+        <div class="d-flex">
+            @can('writer-only')
+                <a href="{{ route('artikels.edit', ['artikel'=> $artikel]) }}" class="btn btn-primary">Edit</a>
+                <a href="{{ route('kuis-index', ['id'=> $artikel->id]) }}" class="btn btn-primary ms-5">Kuis</a>
+            @endcan
+            @can('supervisor-only')
+                <a href="{{ route('artikel-ubah-status', ['artikel'=> $artikel]) }}" class="btn btn-primary">Ubah Status</a>
+            @endcan
+        </div>
     </div>
     {{-- Card Section --}}
     <div class="row mt-3">
         <div class="col-6">
             <div class="card shadow px-0 border-0 ms-0">
-                Jumlah View
+                Jumlah Views
             </div>
         </div>
         <div class="col-6">

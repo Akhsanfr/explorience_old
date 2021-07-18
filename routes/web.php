@@ -9,11 +9,13 @@ use App\Http\Livewire\Dashboard\Artikel\ArtikelCreate;
 use App\Http\Livewire\Dashboard\Artikel\ArtikelIndex;
 use App\Http\Livewire\Dashboard\Kategori\KategoriIndex;
 use App\Http\Livewire\Dashboard\Komentar\KomentarIndex;
+use App\Http\Livewire\Dashboard\Kuis\KuisIndex;
 use App\Http\Livewire\Dashboard\User\UserIndex;
 use App\Http\Livewire\Dashboard\User\UserPodcaster;
 use App\Http\Livewire\Dashboard\User\UserWriter;
 use App\Http\Livewire\Dashboard\Welcome;
 use App\Http\Livewire\Show\Artikel\ArtikelView;
+use App\Http\Livewire\Show\Artikel\KuisView;
 use App\Models\Artikel;
 use GuzzleHttp\Middleware;
 
@@ -40,6 +42,8 @@ Route::middleware(['auth','team'])->group(function () {
         Route::get('/artikel', ArtikelIndex::class)->name('artikel-index');
         Route::resource('/artikels', ArtikelController::class)->only(['show','create','store','edit','update']);
         Route::get('/artikels/ubah-status/{artikel}', [ArtikelController::class, 'ubahStatus'])->name('artikel-ubah-status');
+        // Kuis
+        Route::get('/kuis/{id}', KuisIndex::class)->name('kuis-index');
         // Kategori
         Route::get('/kategori', KategoriIndex::class)->name('kategori-index');
         // Komentar
@@ -52,4 +56,5 @@ Route::get('/artikel', function(){
     return view('controller.test.artikel-index', compact('artikels'));
 })->name('index-artikel');
 Route::get('/{slug}', ArtikelView::class)->name('show-artikel');
+Route::get('kuis/{id}', KuisView::class)->name('show-kuis');
 

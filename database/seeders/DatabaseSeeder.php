@@ -30,16 +30,13 @@ class DatabaseSeeder extends Seeder
             'nama' => 'guest',
         ]);
 
-
-
-
-
         $this->call([
             UserSeeder::class,
             RoleSeeder::class,
             KategoriSeeder::class,
             ArtikelSeeder::class,
             KomentarSeeder::class,
+            KuisSeeder::class,
         ]);
     }
 }

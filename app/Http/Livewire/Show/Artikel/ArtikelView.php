@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Show\Artikel;
 
 use App\Models\Artikel;
+use App\Models\Kuis;
 use App\Models\Komentar;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -21,6 +22,7 @@ class ArtikelView extends Component
 
     public $komentar_second_id = null;
     public $komentar_second_nama = null;
+
 
     public function isSuccess(){
         return $this->success;
@@ -74,7 +76,6 @@ class ArtikelView extends Component
         $this->reply = 0;
         $this->artikel = Artikel::with('komentars')->where('slug', $this->slug)->first();
     }
-
 
 
     public function render()

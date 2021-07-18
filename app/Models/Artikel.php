@@ -22,4 +22,7 @@ class Artikel extends Model
     public function komentars(){
         return $this->hasMany(Komentar::class);
     }
+    public function kuises(){
+        return $this->hasMany(Kuis::class);
+    }
 }

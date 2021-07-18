@@ -21,7 +21,13 @@
                 <tr>
                     <th scope="row">{{ $loop->iteration }}</th>
                     <td>{{$artikel->kategori->nama}}</td>
-                    <td><a href="{{ route('show-artikel',['slug'=> $artikel->slug]) }}">{{$artikel->judul}}</a></td>
+                    <td>
+                        @if ($artikel->supervisor_id)
+                            <a href="{{ route('show-artikel',['slug'=> $artikel->slug]) }}">{{$artikel->judul}}</a>
+                            @else
+                            {{$artikel->judul}}
+                        @endif
+                    </td>
                     <td>{{ $artikel->writer->nama}}</td>
                     <td>{!! $artikel->supervisor->nama ?? '<span class="text-danger">Belum ada penyunting</span>'!!}</td>
                     <td>{{ $artikel->is_active ? 'Aktif' : 'Tidak Aktif' }}</td>
