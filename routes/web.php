@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\ArtikelShowController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
@@ -57,4 +58,5 @@ Route::get('/artikel', function(){
 })->name('index-artikel');
 Route::get('/{slug}', ArtikelView::class)->name('show-artikel');
 Route::get('kuis/{id}', KuisView::class)->name('show-kuis');
+
 
